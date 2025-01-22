@@ -1,0 +1,17 @@
+version: '3.8'
+services:
+  myapp:
+    image: myapp:1
+    ports:
+      - "8080:5000"
+    restart: always
+    command: python ./app.py
+  db:
+    image: postgres:13
+    volumes:
+      - db_data:/var/lib/postgresql/data
+    environment:
+      POSTGRES_PASSWORD: alexisbreton
+volumes:
+  db_data: {}
+  
